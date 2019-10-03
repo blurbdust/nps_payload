@@ -315,9 +315,9 @@ def generate_msbuild_nps_msf_csharp_payload():
   print("\t(2)\twindows/meterpreter/reverse_http")
   print("\t(3)\twindows/meterpreter/reverse_https")
 
-  options = {1: "windows/meterpreter/reverse_tcp",
-             2: "windows/meterpreter/reverse_http",
-             3: "windows/meterpreter/reverse_https"
+  options = {1: "windows/x64/meterpreter/reverse_tcp",
+             2: "windows/x64/meterpreter/reverse_http",
+             3: "windows/x64/meterpreter/reverse_https"
   }
 
   # Generate payload
